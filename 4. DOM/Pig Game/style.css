@@ -2,6 +2,9 @@
 *** GENERAL
 **********************************************/
 
+#dice1 { top: 120px;}
+#dice2 { top: 250px;}
+
 * {
     margin: 0;
     padding: 0;
@@ -102,6 +105,15 @@ body {
     font-size: 30px;
 }
 
+input {
+  position: absolute;
+  width: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid red;
+
+}
+
 button {
     position: absolute;
     width: 200px;
@@ -139,6 +151,7 @@ i {
 .btn-new { top: 45px;}
 .btn-roll { top: 403px;}
 .btn-hold { top: 467px;}
+.input-score {top: 520px;}
 
 .dice {
     position: absolute;
