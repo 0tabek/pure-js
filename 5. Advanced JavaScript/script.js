@@ -324,3 +324,40 @@
 // MyObject.prototype.getMessage = function() {
 //   return this.message;
 // }
+
+
+// Lecture: Bind, call and apply
+
+var john = {
+  name: "John",
+  age: 26,
+  job: "teacher",
+  presentation: function(style, timeOfDay) {
+    if (style === "formal") {
+      console.log("Good " + timeOfDay + ", Ladies and gentlemen! I\'m " + this.name +
+      ", I\'m " +
+      this.job + " and I\'m " + this.age + " years old." );
+    } else if (style === "friendly") {
+      console.log("Hey! What\'s up? I\'m " + this.name +
+      ", I\m " +
+      this.job + " and I\'m " + this.age + " years old. Have a nice " +
+      timeOfDay + ".");
+    }
+  }
+}
+
+var emily = {
+  name: "Emily",
+  age: 35,
+  job: "designer"
+};
+
+john.presentation("formal", "morning");
+john.presentation.call(emily, "formal", "morning");
+// john.presentation.apply(emily, ["friendly", "morning"])
+
+var johnFriedly = john.presentation.bind(john, "friendly");
+johnFriedly("morning");
+johnFriedly("night");
+
+var emilyFormal = john.presentation.bind(emily, "formal");
