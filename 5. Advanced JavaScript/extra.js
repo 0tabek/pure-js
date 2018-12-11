@@ -126,6 +126,76 @@ var x = function(x, y) {
 // ES6
 const x = (x,y) => x * y;
 
-*/
+
 
 // JavaScript Function Parameters
+
+var myObject = {
+ firstName:"John",
+ lastName: "Doe",
+ fullName: function () {
+   return this;
+ }
+}
+
+console.log(myObject.fullName());      // Will return "John Doe"
+
+
+
+// JavaScript Function Call
+
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+var person1 = {
+  firstName: "John",
+  lastName: "Doe"
+}
+
+var person2 = {
+  firstName: "Mary",
+  lastName: "Doe"
+}
+
+var x = person.fullName.call(person2);
+
+// JavaScript Function Apply
+
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + ", " + city + ", " + country;
+  }
+}
+
+var person1 = {
+  firstName: "John",
+  lastName: "Doe"
+}
+
+var x = person.fullName.apply(person1, ["Urgench", "UZB"]);
+
+Math.max(1,2,3);
+Math.max.apply(4, [1,2,3]);
+
+// call() method takes arguments separately
+// apply() method takes arguments as an array
+
+// In JS strict mode, if the first argument of the apply() method is not an Object,
+// it becomes the owner (object) of the invoked function. In "non-strict" mode, it
+// becomes the global object.
+
+
+// JavaScript Closures
+
+var add = (function () {
+  var counter = 0;
+  return function () { counter += 1; return counter; }
+}) ();
+
+add();
+console.log(add());
+
+*/
